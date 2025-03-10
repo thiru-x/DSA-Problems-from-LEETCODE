@@ -14,4 +14,3 @@ class Solution {
         return -1;  // No common element found
     }
 }
-
