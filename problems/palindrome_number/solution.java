@@ -1,3 +1,5 @@
+
+
 class Solution {
     public boolean isPalindrome(int x) {
         int original=x;
