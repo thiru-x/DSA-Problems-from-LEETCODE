@@ -38,12 +38,5 @@ class Solution {
 		return result.reverse().toString();
 	}
 
-	// Main driver method
-	public static void main(String[] args)
-	{
-		String x = "011011";
-		String y = "1010111";
 	
-		System.out.println(addBinary(x, y));
-	}
 }
