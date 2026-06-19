@@ -1,13 +1,12 @@
 class Solution {
     public int largestAltitude(int[] gain) {
-        int n = gain.length;
-        int result = 0;
-        int[] altitude = new int[n + 1];
-        altitude[0] = 0;
-        for (int i = 1; i <= n; i++) {
-            altitude[i] = altitude[i - 1] + gain[i - 1];
-            result = Math.max(result, altitude[i]);
+        int cur = 0, max = 0;
+
+        for(int g : gain){
+            cur += g;
+            max = Math.max(max, cur);
         }
-        return result;
+
+        return max;
     }
 }
