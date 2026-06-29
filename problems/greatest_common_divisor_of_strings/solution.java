@@ -1,27 +1,19 @@
 class Solution {
-	static String gcdOfStrings(String str1, String str2)
-	{
-		if (str1.length() < str2.length()) {
-			return gcdOfStrings(str2, str1);
-		}
-		else if (!str1.startsWith(str2)) {
-			return "";
-		}
-		else if (str2.isEmpty()) {
-			return str1;
-		}
-		else {
-			return gcdOfStrings(str1.substring(str2.length()),
-					str2);
-		}
-	}
-	static String findGCD(String arr[], int n)
-	{
-		String result = arr[0];
+    public String gcdOfStrings(String str1, String str2) {
 
-		for (int i = 1; i < n; i++) {
-			result = gcdOfStrings(result, arr[i]);
-		}
-		return result;
-	}
+        int len1=str1.length(),len2=str2.length();
+
+        if(!(str1+str2).equals(str2+str1)){
+            return "";
+        }
+        String result=str1.substring(0,gcd(len1,len2));
+        return result;
+    }
+    
+    private int gcd(int num1, int num2){
+            if(num2==0){
+                return num1;
+            }
+            return gcd(num2,(num1%num2));
+    }
 }
