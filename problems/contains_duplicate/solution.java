@@ -1,14 +1,12 @@
-import java.util.Arrays;
 class Solution {
     public boolean containsDuplicate(int[] nums) {
-        int n=nums.length;
-        Arrays.sort(nums);
-        // boolean res=false;
-        for(int i=1;i<n;i++){
-            if(nums[i]==nums[i-1])
-            {
-                return true;
-            }
+        
+        HashSet<Integer> seen = new HashSet<>();
+
+        for(int num : nums){
+           if(!seen.add(num)){
+            return true;
+           }
         }
         return false;
     }
