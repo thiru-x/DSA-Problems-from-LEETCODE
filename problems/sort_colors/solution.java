@@ -1,24 +1,30 @@
 class Solution {
     public void sortColors(int[] nums) {
-        int low = 0, mid = 0, high = nums.length - 1;
-
-        while (mid <= high) {
-            if (nums[mid] == 0) {
-                swap(nums, low, mid);
-                low++;
-                mid++;
-            } else if (nums[mid] == 1) {
-                mid++;
-            } else { 
-                swap(nums, mid, high);
-                high--;
+        
+        ArrayList<Integer> zero = new ArrayList<>();
+        ArrayList<Integer> ones = new ArrayList<>();
+        ArrayList<Integer> twos = new ArrayList<>();
+        
+        for(int i=0;i<nums.length;i++){
+            if(nums[i] == 0){
+                 zero.add(nums[i]);
+            }else if(nums[i] == 1){
+                ones.add(nums[i]);
+            }else{
+                twos.add(nums[i]);
             }
         }
-    }
 
-    private void swap(int[] nums, int i, int j) {
-        int temp = nums[i];
-        nums[i] = nums[j];
-        nums[j] = temp;
+        List<Integer> combined = new ArrayList<>();
+
+        // Append all lists
+        combined.addAll(zero);
+        combined.addAll(ones);
+        combined.addAll(twos);
+
+        for (int i = 0; i < nums.length; i++) {
+            nums[i] = combined.get(i);
+        }
+
     }
 }
